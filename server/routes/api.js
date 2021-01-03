@@ -9,7 +9,7 @@ router.get('/sanity', function (req, res) {
 router.get('/images', async function (req, res) {
     try {
         if (req.query.id) {
-            const image = await Image.find({_id: req.query.id});
+            const image = await Image.findById(req.query.id);
             res.send(image);
         } else {
             const images = await Image.find({});
